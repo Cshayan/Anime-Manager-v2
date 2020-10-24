@@ -8,7 +8,9 @@ import {
   SET_ANIME_ID,
   DELETE_ANIME_WATCHLIST_SUCCESS,
   DELETE_ANIME_WATCHLIST_FAIL,
-} from "../constants/animeConstant";
+  SET_ANIME_DIALOG_DETAIL,
+  ANIME_STATUS_SAVE_SUCCESS,
+} from '../constants/animeConstant';
 
 const initialState = {
   isAnimeLoading: false,
@@ -17,9 +19,10 @@ const initialState = {
   animeAddError: null,
   animeGetMessage: null,
   animeGetError: null,
-  animeIdToDelete: "",
+  animeIdToDelete: '',
   animeDeleteMessage: null,
   animeDeleteError: null,
+  animeDialogDetail: {},
 };
 
 export const animeReducer = (state = initialState, action) => {
@@ -30,7 +33,7 @@ export const animeReducer = (state = initialState, action) => {
         ...state,
         animeAddMessage: null,
         addAnimeError: null,
-        animeIdToDelete: "",
+        animeIdToDelete: '',
       };
     case ADD_ANIME_WATCHLIST_SUCCESS:
       return {
@@ -38,14 +41,14 @@ export const animeReducer = (state = initialState, action) => {
         animeAddMessage: payload.msg,
         animeAddError: null,
         watchlist: [payload.data, ...state.watchlist],
-        animeIdToDelete: "",
+        animeIdToDelete: '',
       };
     case ADD_ANIME_WATCHLIST_FAIL:
       return {
         ...state,
         animeAddMessage: null,
         animeAddError: payload.error,
-        animeIdToDelete: "",
+        animeIdToDelete: '',
       };
     case GET_ANIME_WATCHLIST_START:
       return {
@@ -53,25 +56,25 @@ export const animeReducer = (state = initialState, action) => {
         isAnimeLoading: true,
         animeGetMessage: null,
         animeGetError: null,
-        animeIdToDelete: "",
+        animeIdToDelete: '',
       };
     case GET_ANIME_WATCHLIST_SUCCESS:
       return {
         ...state,
         isAnimeLoading: false,
-        animeGetMessage: "Anime watchlist fetched successfully!",
+        animeGetMessage: 'Anime watchlist fetched successfully!',
         animeGetError: null,
         watchlist: payload.data,
-        animeIdToDelete: "",
+        animeIdToDelete: '',
       };
     case GET_ANIME_WATCHLIST_FAIL:
       return {
         ...state,
         isAnimeLoading: false,
         animeGetMessage: null,
-        animeGetError: "Error in fetching Anime watchlist",
+        animeGetError: 'Error in fetching Anime watchlist',
         watchlist: [],
-        animeIdToDelete: "",
+        animeIdToDelete: '',
       };
     case SET_ANIME_ID:
       return {
@@ -82,16 +85,30 @@ export const animeReducer = (state = initialState, action) => {
       return {
         ...state,
         watchlist: state.watchlist.filter(
-          (currentWatchlist) => currentWatchlist._id !== payload
+          (currentWatchlist) => currentWatchlist._id !== payload,
         ),
-        animeDeleteMessage: "Anime deleted from your watchlist!",
+        animeDeleteMessage: 'Anime deleted from your watchlist!',
         animeDeleteError: null,
       };
     case DELETE_ANIME_WATCHLIST_FAIL:
       return {
         ...state,
         animeDeleteMessage: null,
-        animeDeleteError: "Failed to delete the anime from the watchlist!",
+        animeDeleteError: 'Failed to delete the anime from the watchlist!',
+      };
+    case SET_ANIME_DIALOG_DETAIL:
+      return {
+        ...state,
+        animeDialogDetail: payload,
+      };
+    case ANIME_STATUS_SAVE_SUCCESS:
+      return {
+        ...state,
+        watchlist: state.watchlist.map((list) =>
+          list._id === payload.animeId
+            ? { ...list, animeStatus: payload.statusValue }
+            : list,
+        ),
       };
     default:
       return state;

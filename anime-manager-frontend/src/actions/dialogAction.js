@@ -5,7 +5,9 @@ import {
   LOGOUT_DIALOG_CLOSE,
   ANIME_DELETE_DIALOG_OPEN,
   ANIME_DELETE_DIALOG_CLOSE,
-} from "../constants/dialogConstant";
+  ANIME_DETAIL_DIALOG_OPEN,
+  ANIME_DETAIL_DIALOG_CLOSE,
+} from '../constants/dialogConstant';
 
 export const openThemeDialog = () => ({
   type: THEME_DIALOG_OPEN,
@@ -29,4 +31,12 @@ export const openAnimeDeleteDialog = () => ({
 
 export const closeAnimeDeleteDialog = () => ({
   type: ANIME_DELETE_DIALOG_CLOSE,
+});
+
+export const openAnimeDetailDialog = () => ({
+  type: ANIME_DETAIL_DIALOG_OPEN,
+});
+
+export const closeAnimeDetailDialog = () => ({
+  type: ANIME_DETAIL_DIALOG_CLOSE,
 });

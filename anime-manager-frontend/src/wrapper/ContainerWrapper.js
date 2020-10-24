@@ -5,9 +5,13 @@ import FullScreenLoader from '../components/utilityComponents/FullScreenLoader';
 const ContainerWrapper = (props) => {
   const { isLoading, children, getCurrentUser, fetchAnimes } = props;
 
-  useEffect(() => {
+  const fetchInitialData = () => {
     getCurrentUser();
     fetchAnimes();
+  };
+
+  useEffect(() => {
+    fetchInitialData();
   }, []);
 
   if (isLoading) return <FullScreenLoader />;

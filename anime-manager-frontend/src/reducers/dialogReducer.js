@@ -5,13 +5,16 @@ import {
   LOGOUT_DIALOG_CLOSE,
   ANIME_DELETE_DIALOG_OPEN,
   ANIME_DELETE_DIALOG_CLOSE,
-} from "../constants/dialogConstant";
-import { AUTH } from "../constants/authConstant";
+  ANIME_DETAIL_DIALOG_OPEN,
+  ANIME_DETAIL_DIALOG_CLOSE,
+} from '../constants/dialogConstant';
+import { AUTH } from '../constants/authConstant';
 
 const initialState = {
   isThemeDialogOpen: false,
   isLogoutDialogOpen: false,
   isAnimeDeleteDialogOpen: false,
+  isAnimeDetailDialogOpen: false,
 };
 
 export const dialogReducer = (state = initialState, action) => {
@@ -46,6 +49,16 @@ export const dialogReducer = (state = initialState, action) => {
       return {
         ...state,
         isAnimeDeleteDialogOpen: false,
+      };
+    case ANIME_DETAIL_DIALOG_OPEN:
+      return {
+        ...state,
+        isAnimeDetailDialogOpen: true,
+      };
+    case ANIME_DETAIL_DIALOG_CLOSE:
+      return {
+        ...state,
+        isAnimeDetailDialogOpen: false,
       };
     case AUTH.RESET_ALL:
       return initialState;

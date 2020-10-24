@@ -26,3 +26,10 @@ export const deleteAnimeWatchlist = (animeId) =>
     method: 'DELETE',
     url: `/features/deleteFromWatchlist/${animeId}`,
   });
+
+export const saveAnimeStatus = (animeId, status) =>
+  axios({
+    method: 'PUT',
+    url: `/features/updateWatchlist/${animeId}`,
+    data: { animeStatus: status },
+  });
