@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, Typography, Grid } from '@material-ui/core/';
 import AnimewatchlistCard from '../AnimeCard/AnimeWatchlistCard';
-import { useAnime } from '../../custom-hooks/animeHook';
+import { useAnime, useAnimeDetailDialog } from '../../custom-hooks/animeHook';
 import { ReactComponent as WatchlistIcon } from '../../assets/watchlist.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -59,6 +59,7 @@ const AnimeWatchlist = (props) => {
   const { animeWatchlist } = props;
   const classes = useStyles();
   const { handleDeleteFromWatchlistClick } = useAnime();
+  const { handleStatusClick } = useAnimeDetailDialog();
 
   return (
     <div className={classes.searchlistContainer}>
@@ -76,8 +77,10 @@ const AnimeWatchlist = (props) => {
           <Grid item xs={12} md={6} lg={6} key={anime._id}>
             <AnimewatchlistCard
               animeId={anime._id}
+              status={anime.animeStatus}
               {...anime}
               onDeleteClick={handleDeleteFromWatchlistClick}
+              onStatusClick={handleStatusClick}
             />
           </Grid>
         ))}

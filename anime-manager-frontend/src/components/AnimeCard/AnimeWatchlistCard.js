@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, Tooltip, Typography } from '@material-ui/core/';
+import {
+  makeStyles,
+  Tooltip,
+  Typography,
+  IconButton,
+} from '@material-ui/core/';
 import DeleteIcon from '@material-ui/icons/DeleteOutline';
 import StarRatings from 'react-star-ratings';
+import cls from 'classnames';
 import { ReactComponent as LoveIcon } from '../../assets/love.svg';
 import { ReactComponent as ToIcon } from '../../assets/to.svg';
 import MAL from '../../assets/mal.png';
@@ -26,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   infoContainerContent: {
     padding: theme.typography.pxToRem(15),
+    width: '100%',
   },
   title: {
     fontSize: theme.typography.pxToRem(26),
@@ -47,19 +54,17 @@ const useStyles = makeStyles((theme) => ({
     color: '#009944',
     fontSize: '2rem',
   },
-  airingBox: {
+  statusBtn: {
     padding: '10px',
     borderRadius: '5px',
-  },
-  ongoing: {
     background: theme.palette.background.default,
-    color: '#16a085',
-    border: '1px dashed #16a085',
+    fontSize: theme.typography.pxToRem(20),
+    width: '100%',
   },
-  notongoing: {
-    background: theme.palette.background.default,
-    color: '#f39c12',
-    border: '1px dashed #f39c12',
+  statusText: {
+    fontSize: theme.typography.pxToRem(16),
+    color: theme.palette.text.primary,
+    margin: `0 ${theme.typography.pxToRem(10)}`,
   },
   deleteFromWatchlist: {
     width: '100%',
@@ -131,12 +136,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '5px',
     border: '1px dashed #cf000f',
   },
-  ongoingVal: {
-    fontSize: '24px',
-  },
-  ongoingText: {
-    fontSize: '14px',
-  },
   animeCard: {
     background: theme.card.background,
     cursor: 'pointer',
@@ -173,6 +172,26 @@ const useStyles = makeStyles((theme) => ({
   mal: {
     width: theme.typography.pxToRem(30),
     height: theme.typography.pxToRem(30),
+  },
+  unwatched: {
+    color: '#7f8c8d',
+    border: '1px dashed #7f8c8d',
+  },
+  watching: {
+    color: '#2ecc71',
+    border: '1px dashed #2ecc71',
+  },
+  completed: {
+    color: '#2980b9',
+    border: '1px dashed #2980b9',
+  },
+  hold: {
+    color: '#f1c40f',
+    border: '1px dashed #f1c40f',
+  },
+  dropped: {
+    color: '#e74c3c',
+    border: '1px dashed #e74c3c',
   },
   '@media screen and (max-width: 600px)': {
     scoreBad: {
@@ -226,64 +245,87 @@ const AnimeCard = (props) => {
       members,
     },
     onDeleteClick,
+    onStatusClick,
+    status,
   } = props;
   return (
-    <div className={classes.animeCard}>
-      <div className={classes.imgContainer}>
-        <img src={imageUrl} className={classes.img} alt="anime-cover" />
-      </div>
-      <div className={classes.infoContainer}>
-        <div className={classes.infoContainerContent}>
-          <Typography noWrap className={classes.title}>
-            {title}
-          </Typography>
-          <div className={classes.scoreAiringCont}>
-            <StarRatings
-              starRatedColor="#f1c40f"
-              rating={score}
-              numberOfStars={5}
-              starDimension="20px"
-              starSpacing="2px"
-            />
-          </div>
-          <div className={classes.dateContainer}>
-            <div className={classes.dateContent}>
-              <Typography className={classes.startDate}>{startDate}</Typography>
+    <>
+      <div className={classes.animeCard}>
+        <div className={classes.imgContainer}>
+          <img src={imageUrl} className={classes.img} alt="anime-cover" />
+        </div>
+        <div className={classes.infoContainer}>
+          <div className={classes.infoContainerContent}>
+            <Typography noWrap className={classes.title}>
+              {title}
+            </Typography>
+            <div className={classes.scoreAiringCont}>
+              <StarRatings
+                starRatedColor="#f1c40f"
+                rating={score}
+                numberOfStars={5}
+                starDimension="20px"
+                starSpacing="2px"
+              />
             </div>
-            <ToIcon className={classes.toIcon} />
-            <div className={classes.dateContent}>
-              <Typography className={classes.endDate}>{endDate}</Typography>
+            <div className={classes.dateContainer}>
+              <div className={classes.dateContent}>
+                <Typography className={classes.startDate}>
+                  {startDate}
+                </Typography>
+              </div>
+              <ToIcon className={classes.toIcon} />
+              <div className={classes.dateContent}>
+                <Typography className={classes.endDate}>{endDate}</Typography>
+              </div>
             </div>
-          </div>
-          <div className={classes.otherInfoCont}>
-            <div className={classes.type}>{type}</div>
-            <div className={classes.episodes}>
-              <span className={classes.episodesText}>Episodes:</span> {episodes}
+            <div className={classes.otherInfoCont}>
+              <div className={classes.type}>{type}</div>
+              <div className={classes.episodes}>
+                <span className={classes.episodesText}>Episodes:</span>{' '}
+                {episodes}
+              </div>
+              <div className={classes.rated}>{rated}</div>
             </div>
-            <div className={classes.rated}>{rated}</div>
-          </div>
-          <div className={classes.membersCont}>
-            <div className={classes.memberInner}>
-              <LoveIcon className={classes.love} />
-              <Tooltip title="Members">
-                <Typography className={classes.members}>{members}</Typography>
+            <div className={classes.membersCont}>
+              <div className={classes.memberInner}>
+                <LoveIcon className={classes.love} />
+                <Tooltip title="Members">
+                  <Typography className={classes.members}>{members}</Typography>
+                </Tooltip>
+              </div>
+              <Tooltip title="View in MAL">
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  <img src={MAL} className={classes.mal} alt="mal" />
+                </a>
               </Tooltip>
             </div>
-            <Tooltip title="View in MAL">
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                <img src={MAL} className={classes.mal} alt="mal" />
-              </a>
-            </Tooltip>
+            <IconButton
+              className={cls(classes.statusBtn, {
+                [classes.unwatched]: status === 'Unwatched',
+                [classes.watching]: status === 'Watching',
+                [classes.completed]: status === 'Completed',
+                [classes.hold]: status === 'On Hold',
+                [classes.dropped]: status === 'Dropped',
+              })}
+              onClick={() =>
+                onStatusClick({ title, animeId, status, imageUrl })
+              }
+            >
+              {status}
+              <div className={classes.statusText}>Tap to change.</div>
+            </IconButton>
           </div>
+
+          <button
+            className={classes.deleteFromWatchlist}
+            onClick={() => onDeleteClick(animeId)}
+          >
+            <DeleteIcon /> Delete from Watchlist
+          </button>
         </div>
-        <button
-          className={classes.deleteFromWatchlist}
-          onClick={() => onDeleteClick(animeId)}
-        >
-          <DeleteIcon /> Delete from Watchlist
-        </button>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -301,7 +343,9 @@ AnimeCard.propTypes = {
   rated: PropTypes.string,
   members: PropTypes.number,
   onDeleteClick: PropTypes.func,
+  onStatusClick: PropTypes.func,
   animeData: PropTypes.object,
+  status: PropTypes.string,
 };
 
 AnimeCard.defaultProps = {
@@ -317,7 +361,9 @@ AnimeCard.defaultProps = {
   rated: '?',
   members: 0,
   onDeleteClick: () => {},
+  onStatusClick: () => {},
   animeData: {},
+  status: 'Unknown',
 };
 
 export default AnimeCard;

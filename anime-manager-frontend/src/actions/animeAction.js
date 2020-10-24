@@ -9,7 +9,11 @@ import {
   DELETE_ANIME_WATCHLIST_START,
   DELETE_ANIME_WATCHLIST_SUCCESS,
   DELETE_ANIME_WATCHLIST_FAIL,
-} from "../constants/animeConstant";
+  SET_ANIME_DIALOG_DETAIL,
+  ANIME_STATUS_SAVE_START,
+  ANIME_STATUS_SAVE_SUCCESS,
+  ANIME_STATUS_SAVE_FAIL,
+} from '../constants/animeConstant';
 
 export const addAnimeWatchlistStart = (payload) => ({
   type: ADD_ANIME_WATCHLIST_START,
@@ -57,5 +61,25 @@ export const deleteAnimeWatchlistSuccess = (payload) => ({
 
 export const deleteAnimeWatchlistFail = (payload) => ({
   type: DELETE_ANIME_WATCHLIST_FAIL,
+  payload,
+});
+
+export const setAnimeDialogDetail = (payload) => ({
+  type: SET_ANIME_DIALOG_DETAIL,
+  payload,
+});
+
+export const animeStatusSaveStart = (payload) => ({
+  type: ANIME_STATUS_SAVE_START,
+  payload,
+});
+
+export const animeStatusSaveSuccess = (payload) => ({
+  type: ANIME_STATUS_SAVE_SUCCESS,
+  payload,
+});
+
+export const animeStatusSaveFail = (payload) => ({
+  type: ANIME_STATUS_SAVE_FAIL,
   payload,
 });

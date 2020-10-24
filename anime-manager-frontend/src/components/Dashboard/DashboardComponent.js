@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimeDetailDialogContainer from 'containers/AnimeDetailDialogContainer/AnimeDetailDialogContainer';
 import Header from '../Header/Header';
 import DashboardContent from './DashboardContent';
 import DrawerContainer from '../../containers/CustomDrawerContainer/DrawerContainer';
@@ -14,6 +15,7 @@ const DashboardComponent = () => (
     <ThemeDialog />
     <LogoutDialog />
     <AnimeDeleteDialog />
+    <AnimeDetailDialogContainer />
   </>
 );
 
