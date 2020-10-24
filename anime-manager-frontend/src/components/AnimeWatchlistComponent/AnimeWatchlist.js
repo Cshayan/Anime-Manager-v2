@@ -65,12 +65,7 @@ const AnimeWatchlist = (props) => {
     <div className={classes.searchlistContainer}>
       <div className={classes.titleCont}>
         <WatchlistIcon className={classes.icon} />
-        <Typography className={classes.animeText}>
-          Your watchlist{' '}
-          <span className={classes.totalStyle}>
-            Total -{animeWatchlist.length}
-          </span>
-        </Typography>
+        <Typography className={classes.animeText}>Your watchlist </Typography>
       </div>
       <Grid container spacing={4}>
         {animeWatchlist.map((anime) => (

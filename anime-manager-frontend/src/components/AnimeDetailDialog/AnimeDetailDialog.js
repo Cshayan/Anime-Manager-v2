@@ -124,7 +124,9 @@ const AnimeDetailDialog = (props) => {
                 >
                   <option value={status}>{status}</option>
                   {statusArray.map((val) => (
-                    <option value={val}>{val}</option>
+                    <option key={val} value={val}>
+                      {val}
+                    </option>
                   ))}
                 </select>
               </div>
