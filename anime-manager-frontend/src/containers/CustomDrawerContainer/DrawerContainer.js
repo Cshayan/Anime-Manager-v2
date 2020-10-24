@@ -1,10 +1,10 @@
-import React, { memo } from "react";
-import CustomDrawer from "../../components/CustomDrawer/CustomDrawer";
-import { useLogOut } from "../../custom-hooks/authHook";
-import { useDarkMode } from "../../custom-hooks/darkModeHook";
-import { useSelector, useDispatch } from "react-redux";
-import { drawerClose } from "../../actions/drawerAction";
-import {} from "../../actions/dialogAction";
+import React, { memo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import CustomDrawer from '../../components/CustomDrawer/CustomDrawer';
+import { useLogOut } from '../../custom-hooks/authHook';
+import { useDarkMode } from '../../custom-hooks/darkModeHook';
+import { drawerClose } from '../../actions/drawerAction';
+import {} from '../../actions/dialogAction';
 
 const DrawerContainer = () => {
   const { handleLogoutButtonClick } = useLogOut();

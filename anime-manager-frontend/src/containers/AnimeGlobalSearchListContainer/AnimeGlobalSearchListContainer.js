@@ -1,31 +1,31 @@
-import React from "react";
-import PropTypes from "prop-types";
-import AnimeCard from "../../components/AnimeCard/AnimeCard";
-import { makeStyles, Typography, Grid } from "@material-ui/core/";
-import { useGlobalSearchAnime } from "../../custom-hooks/globalAnimeSearchHook";
-import { useAnime } from "../../custom-hooks/animeHook";
-import { dateFormatterInString } from "../../utils/dateFormatter";
-import { getScoreFormatter } from "../../utils/scoreFormatter";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles, Typography, Grid } from '@material-ui/core/';
+import AnimeCard from '../../components/AnimeCard/AnimeCard';
+import { useGlobalSearchAnime } from '../../custom-hooks/globalAnimeSearchHook';
+import { useAnime } from '../../custom-hooks/animeHook';
+import { dateFormatterInString } from '../../utils/dateFormatter';
+import { getScoreFormatter } from '../../utils/scoreFormatter';
 
 const useStyles = makeStyles((theme) => ({
   animeText: {
-    fontSize: "1.5rem",
-    letterSpacing: "0.1rem",
+    fontSize: '1.5rem',
+    letterSpacing: '0.1rem',
     color: theme.palette.primary.main,
-    marginBottom: "10px",
+    marginBottom: '10px',
   },
   searchlistContainer: {
     padding: theme.typography.pxToRem(20),
-    display: "flex",
-    flexDirection: "column",
-    overflowX: "hidden",
-    overflowY: "auto",
-    width: "100%",
-    height: "100%",
+    display: 'flex',
+    flexDirection: 'column',
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    width: '100%',
+    height: '100%',
   },
-  "@media screen and (max-width: 600px)": {
+  '@media screen and (max-width: 600px)': {
     animeText: {
-      fontSize: "0.8rem",
+      fontSize: '0.8rem',
     },
   },
 }));
@@ -57,7 +57,7 @@ const AnimeGlobalSearchListContainer = (props) => {
                 score={getScoreFormatter(anime.score)}
                 startDate={dateFormatterInString(anime.start_date)}
                 endDate={dateFormatterInString(anime.end_date)}
-                ongoing={anime.airing ? "Yes" : "No"}
+                ongoing={anime.airing ? 'Yes' : 'No'}
                 rated={anime.rated}
                 members={anime.members}
                 onAddClick={handleAnimeAddToWatchlistClick}

@@ -1,6 +1,6 @@
 /* Saga file to handle authentication */
-import { call, takeLatest, put, delay } from "redux-saga/effects";
-import { AUTH } from "../constants/authConstant";
+import { call, takeLatest, put, delay } from 'redux-saga/effects';
+import { AUTH } from '../constants/authConstant';
 import {
   loginAPISuccess,
   loginAPIFail,
@@ -9,19 +9,19 @@ import {
   registerAPIFail,
   registerAPISuccess,
   logOutUserSuccess,
-} from "../actions/authAction";
-import { snackBarOpen } from "../actions/snackbarAction";
-import { APIS } from "../services/authService";
+} from '../actions/authAction';
+import { snackBarOpen } from '../actions/snackbarAction';
+import { APIS } from '../services/authService';
 
 /* Worker Saga */
-function* getMeWorker(action) {
+function* getMeWorker() {
   try {
     yield delay(2000);
     const { data } = yield call(APIS.getMe);
     yield put(getMeAPISuccess(data));
   } catch (err) {
     yield put(getMeAPIFail(err.response.data));
-    yield put(snackBarOpen(err.response.data.error, "info"));
+    yield put(snackBarOpen(err.response.data.error, 'info'));
   }
 }
 
@@ -32,7 +32,7 @@ function* registerUserWorker(action) {
     yield put(registerAPISuccess(data));
   } catch (err) {
     yield put(registerAPIFail(err.response.data));
-    yield put(snackBarOpen(err.response.data.error, "info"));
+    yield put(snackBarOpen(err.response.data.error, 'info'));
   }
 }
 
@@ -43,7 +43,7 @@ function* loginUserWorker(action) {
     yield put(loginAPISuccess(data));
   } catch (err) {
     yield put(loginAPIFail(err.response.data));
-    yield put(snackBarOpen(err.response.data.error, "info"));
+    yield put(snackBarOpen(err.response.data.error, 'info'));
   }
 }
 

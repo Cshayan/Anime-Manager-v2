@@ -1,27 +1,27 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { makeStyles, Tooltip, Button } from "@material-ui/core/";
-import cls from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { makeStyles, Tooltip, Button } from '@material-ui/core/';
+import cls from 'classnames';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   headerContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    textAlign: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    textAlign: 'center',
   },
   backIcon: {
-    fontSize: "2rem",
-    color: "#111",
-    cursor: "pointer",
+    fontSize: '2rem',
+    color: '#111',
+    cursor: 'pointer',
   },
-  "@media screen and (max-width: 600px)": {
+  '@media screen and (max-width: 600px)': {
     backIcon: {
-      fontSize: "1.3rem",
+      fontSize: '1.3rem',
     },
     hideButton: {
-      display: "none",
+      display: 'none',
     },
   },
 }));
@@ -43,7 +43,7 @@ const GoBack = (props) => {
 };
 
 GoBack.defaultProps = {
-  toolTipTitle: "Go Back",
+  toolTipTitle: 'Go Back',
 };
 
 GoBack.propTypes = {

@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 import {
   useFocus,
   useGlobalSearchAnime,
-} from "../../custom-hooks/globalAnimeSearchHook";
-import { useAnime } from "../../custom-hooks/animeHook";
-import AnimeWatchlist from "../../components/AnimeWatchlistComponent/AnimeWatchlist";
-import StateView from "../../components/StateView/StateView";
-import AnimeGlobalSearchListContainer from "../AnimeGlobalSearchListContainer/AnimeGlobalSearchListContainer";
-import NoAnimeImg from "../../assets/noAnimeImg.svg";
-import SearchAnime from "../../assets/searchAnime.svg";
-import HourGlass from "../../assets/hourglass.svg";
-import Sweat from "../../assets/sweat.svg";
-import Error from "../../assets/report.svg";
+} from '../../custom-hooks/globalAnimeSearchHook';
+import { useAnime } from '../../custom-hooks/animeHook';
+import AnimeWatchlist from '../../components/AnimeWatchlistComponent/AnimeWatchlist';
+import StateView from '../../components/StateView/StateView';
+import AnimeGlobalSearchListContainer from '../AnimeGlobalSearchListContainer/AnimeGlobalSearchListContainer';
+import NoAnimeImg from '../../assets/noAnimeImg.svg';
+import SearchAnime from '../../assets/searchAnime.svg';
+import HourGlass from '../../assets/hourglass.svg';
+// import Sweat from "../../assets/sweat.svg";
+import Error from '../../assets/report.svg';
 
 const AnimeWatchlistContainer = () => {
   const { isSearchBarFoccused } = useFocus();

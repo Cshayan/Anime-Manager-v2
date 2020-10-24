@@ -1,17 +1,17 @@
-import React from "react";
-import { makeStyles, Card, CardContent, Typography } from "@material-ui/core";
-import InfoIcon from "@material-ui/icons/Info";
+import React from 'react';
+import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles((theme) => ({
   statsContainer: {
-    padding: "1rem",
+    padding: '1rem',
   },
   card: {
     height: 300,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
     background: theme.card.background,
     border: `1px solid ${theme.palette.primary.main}`,
   },
@@ -23,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
   noDataText: {
     color: theme.palette.text.primary,
     fontSize: theme.typography.pxToRem(18),
-    letterSpacing: "0.1rem",
-    fontWeight: "600",
+    letterSpacing: '0.1rem',
+    fontWeight: '600',
   },
-  "@media screen and (max-width:600px)": {
+  '@media screen and (max-width:600px)': {
     card: {
       height: 200,
     },

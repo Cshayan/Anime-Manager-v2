@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core";
-import LoginContainer from "./LoginContainer";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
-import RegisterContainer from "./RegisterContainer";
-import "./authStyles.css";
-import { useAuthentication } from "../../custom-hooks/authHook";
-import { Redirect } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { Redirect } from 'react-router-dom';
+import LoginContainer from './LoginContainer';
+import RegisterContainer from './RegisterContainer';
+import './authStyles.css';
+import { useAuthentication } from '../../custom-hooks/authHook';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   authContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "60%",
-    margin: "0 auto",
-    marginTop: "7rem",
-    "@media screen and (max-width: 600px)": {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '60%',
+    margin: '0 auto',
+    marginTop: '7rem',
+    '@media screen and (max-width: 600px)': {
       marginTop: 0,
-      width: "90%",
+      width: '90%',
     },
   },
 }));
@@ -49,7 +50,7 @@ const AuthContainer = (props) => {
       <CSSTransition
         key={transitionState}
         addEndListener={(node, done) => {
-          node.addEventListener("transitionend", done, false);
+          node.addEventListener('transitionend', done, false);
         }}
         classNames="fade"
       >
@@ -67,4 +68,11 @@ const AuthContainer = (props) => {
   );
 };
 
+AuthContainer.propTypes = {
+  location: PropTypes.object,
+};
+
+AuthContainer.defaultProps = {
+  location: {},
+};
 export default AuthContainer;

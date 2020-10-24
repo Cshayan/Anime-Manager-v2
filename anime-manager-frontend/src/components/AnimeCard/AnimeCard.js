@@ -1,29 +1,29 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles, Tooltip, Typography } from "@material-ui/core/";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import cls from "classnames";
-import StarRatings from "react-star-ratings";
-import { ReactComponent as LoveIcon } from "assets/love.svg";
-import { ReactComponent as ToIcon } from "assets/to.svg";
-import MAL from "assets/mal.png";
-import "./styles.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles, Tooltip, Typography } from '@material-ui/core/';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import cls from 'classnames';
+import StarRatings from 'react-star-ratings';
+import { ReactComponent as LoveIcon } from 'assets/love.svg';
+import { ReactComponent as ToIcon } from 'assets/to.svg';
+import MAL from 'assets/mal.png';
+import './styles.css';
 
 const useStyles = makeStyles((theme) => ({
   imgContainer: {
-    width: "40%",
-    height: "100%",
-    overflow: "hidden",
+    width: '40%',
+    height: '100%',
+    overflow: 'hidden',
   },
   img: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
   },
   infoContainer: {
-    width: "60%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    width: '60%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   infoContainerContent: {
     padding: theme.typography.pxToRem(15),
@@ -31,56 +31,56 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: theme.typography.pxToRem(26),
     color: theme.palette.primary.main,
-    letterSpacing: "0.1rem",
-    fontWeight: "700",
+    letterSpacing: '0.1rem',
+    fontWeight: '700',
   },
   scoreAiringCont: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginTop: theme.typography.pxToRem(10),
   },
   scoreBad: {
-    color: "#cf000f",
-    fontSize: "2rem",
+    color: '#cf000f',
+    fontSize: '2rem',
   },
   scoreGood: {
-    color: "#009944",
-    fontSize: "2rem",
+    color: '#009944',
+    fontSize: '2rem',
   },
   airingBox: {
-    padding: "10px",
-    borderRadius: "5px",
+    padding: '10px',
+    borderRadius: '5px',
   },
   ongoing: {
     background: theme.palette.background.default,
-    color: "#16a085",
-    border: "1px dashed #16a085",
+    color: '#16a085',
+    border: '1px dashed #16a085',
   },
   notongoing: {
     background: theme.palette.background.default,
-    color: "#f39c12",
-    border: "1px dashed #f39c12",
+    color: '#f39c12',
+    border: '1px dashed #f39c12',
   },
   addToWatchlist: {
-    width: "100%",
-    border: "none",
-    outline: "none",
+    width: '100%',
+    border: 'none',
+    outline: 'none',
     background: theme.button.background.light,
-    color: "#fff",
-    padding: "12px 7px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    "&:hover": {
-      opacity: "0.9",
+    color: '#fff',
+    padding: '12px 7px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    '&:hover': {
+      opacity: '0.9',
     },
   },
   dateContainer: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     marginTop: theme.typography.pxToRem(25),
   },
   startDate: {
@@ -93,15 +93,15 @@ const useStyles = makeStyles((theme) => ({
     border: `1px dashed ${theme.palette.primary.main}`,
     color: theme.palette.primary.main,
     background: theme.palette.background.default,
-    padding: "5px 10px",
-    borderRadius: "5px",
+    padding: '5px 10px',
+    borderRadius: '5px',
   },
   to: {
     border: `1px solid ${theme.palette.primary.main}`,
     color: theme.palette.primary.main,
     background: theme.palette.background.default,
-    padding: "5px",
-    borderRadius: "50%",
+    padding: '5px',
+    borderRadius: '50%',
   },
   toIcon: {
     width: theme.typography.pxToRem(30),
@@ -109,9 +109,9 @@ const useStyles = makeStyles((theme) => ({
   },
   otherInfoCont: {
     marginTop: theme.typography.pxToRem(25),
-    display: "flex",
-    justifyContent: "space-evenly",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
   episodesText: {
     fontSize: theme.typography.pxToRem(16),
@@ -120,47 +120,47 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
   },
   type: {
-    color: "#fff",
+    color: '#fff',
     background: theme.button.background.light,
-    padding: "5px",
-    borderRadius: "5px",
+    padding: '5px',
+    borderRadius: '5px',
   },
   rated: {
-    color: "#cf000f",
+    color: '#cf000f',
     background: theme.palette.background.default,
-    padding: "5px",
-    borderRadius: "5px",
-    border: "1px dashed #cf000f",
+    padding: '5px',
+    borderRadius: '5px',
+    border: '1px dashed #cf000f',
   },
   ongoingVal: {
-    fontSize: "24px",
+    fontSize: '24px',
   },
   ongoingText: {
-    fontSize: "14px",
+    fontSize: '14px',
   },
   animeCard: {
     background: theme.card.background,
-    cursor: "pointer",
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    borderRadius: "5px",
+    cursor: 'pointer',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    borderRadius: '5px',
     border: `1px solid ${theme.palette.primary.main}`,
-    boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)",
-    "&:hover": {
-      transform: "scale(1.02)",
-      transition: "all 0.4s",
+    boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+    '&:hover': {
+      transform: 'scale(1.02)',
+      transition: 'all 0.4s',
     },
   },
   membersCont: {
-    display: "flex",
-    justifyContent: "space-evenly",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     margin: `${theme.typography.pxToRem(25)} 0`,
   },
   memberInner: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
   love: {
     width: theme.typography.pxToRem(30),
@@ -175,34 +175,34 @@ const useStyles = makeStyles((theme) => ({
     width: theme.typography.pxToRem(30),
     height: theme.typography.pxToRem(30),
   },
-  "@media screen and (max-width: 600px)": {
+  '@media screen and (max-width: 600px)': {
     scoreBad: {
-      fontSize: "1.5rem",
+      fontSize: '1.5rem',
     },
     scoreGood: {
-      fontSize: "1.5rem",
+      fontSize: '1.5rem',
     },
     airingBox: {
-      padding: "5px",
+      padding: '5px',
     },
     ongoingVal: {
-      fontSize: "18px",
+      fontSize: '18px',
     },
     ongoingText: {
-      fontSize: "8px",
+      fontSize: '8px',
     },
     dateContent: {
-      padding: "5px",
+      padding: '5px',
     },
     addToWatchlist: {
-      padding: "7px",
+      padding: '7px',
     },
     type: {
-      padding: "2px",
+      padding: '2px',
       fontSize: theme.typography.pxToRem(16),
     },
     rated: {
-      padding: "2px",
+      padding: '2px',
       fontSize: theme.typography.pxToRem(16),
     },
   },
@@ -245,8 +245,8 @@ const AnimeCard = (props) => {
             />
             <div
               className={cls(classes.airingBox, {
-                [classes.ongoing]: ongoing === "Yes",
-                [classes.notongoing]: ongoing === "No",
+                [classes.ongoing]: ongoing === 'Yes',
+                [classes.notongoing]: ongoing === 'No',
               })}
             >
               <div className={classes.ongoingText}>Ongoing: </div>
@@ -302,7 +302,7 @@ const AnimeCard = (props) => {
             })
           }
         >
-          {" "}
+          {' '}
           <AddCircleIcon /> Add to Watchlist
         </button>
       </div>
@@ -311,7 +311,7 @@ const AnimeCard = (props) => {
 };
 
 AnimeCard.propTypes = {
-  key: PropTypes.number,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string,
   url: PropTypes.string,
   imageUrl: PropTypes.string,
@@ -327,17 +327,16 @@ AnimeCard.propTypes = {
 };
 
 AnimeCard.defaultProps = {
-  key: Math.random(100),
-  title: "No title.",
-  url: "",
-  imageUrl: "",
-  type: "---",
+  title: 'No title.',
+  url: '',
+  imageUrl: '',
+  type: '---',
   episodes: 0,
   score: 0.0,
-  startDate: "NA",
-  endDate: "?",
-  ongoing: "NA",
-  rated: "?",
+  startDate: 'NA',
+  endDate: '?',
+  ongoing: 'NA',
+  rated: '?',
   members: 0,
   onAddClick: () => {},
 };

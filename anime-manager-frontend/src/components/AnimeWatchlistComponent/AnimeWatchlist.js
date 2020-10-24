@@ -1,55 +1,55 @@
-import React from "react";
-import PropTypes from "prop-types";
-import AnimewatchlistCard from "../AnimeCard/AnimeWatchlistCard";
-import { useAnime } from "../../custom-hooks/animeHook";
-import { makeStyles, Typography, Grid } from "@material-ui/core/";
-import { ReactComponent as WatchlistIcon } from "../../assets/watchlist.svg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles, Typography, Grid } from '@material-ui/core/';
+import AnimewatchlistCard from '../AnimeCard/AnimeWatchlistCard';
+import { useAnime } from '../../custom-hooks/animeHook';
+import { ReactComponent as WatchlistIcon } from '../../assets/watchlist.svg';
 
 const useStyles = makeStyles((theme) => ({
   animeText: {
-    fontSize: "1.5rem",
-    letterSpacing: "0.1rem",
+    fontSize: '1.5rem',
+    letterSpacing: '0.1rem',
     color: theme.palette.primary.main,
   },
   searchlistContainer: {
     padding: theme.typography.pxToRem(20),
-    display: "flex",
-    flexDirection: "column",
-    overflowX: "hidden",
-    overflowY: "auto",
-    width: "100%",
-    height: "100%",
+    display: 'flex',
+    flexDirection: 'column',
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    width: '100%',
+    height: '100%',
   },
   totalStyle: {
-    padding: "5px 8px",
-    borderRadius: "20px",
+    padding: '5px 8px',
+    borderRadius: '20px',
     background: theme.button.background.light,
-    color: "#fff",
+    color: '#fff',
     fontSize: theme.typography.pxToRem(22),
   },
   icon: {
     width: theme.typography.pxToRem(60),
     height: theme.typography.pxToRem(60),
-    margin: "0 5px",
+    margin: '0 5px',
   },
   titleCont: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
     marginBottom: theme.typography.pxToRem(15),
   },
-  "@media screen and (max-width: 600px)": {
+  '@media screen and (max-width: 600px)': {
     animeText: {
-      fontSize: "0.8rem",
+      fontSize: '0.8rem',
     },
     icon: {
       width: theme.typography.pxToRem(30),
       height: theme.typography.pxToRem(30),
     },
     totalStyle: {
-      padding: "3px",
-      borderRadius: "20px",
+      padding: '3px',
+      borderRadius: '20px',
       background: theme.button.background.light,
-      color: "#fff",
+      color: '#fff',
       fontSize: theme.typography.pxToRem(16),
     },
   },
@@ -65,7 +65,7 @@ const AnimeWatchlist = (props) => {
       <div className={classes.titleCont}>
         <WatchlistIcon className={classes.icon} />
         <Typography className={classes.animeText}>
-          Your watchlist{" "}
+          Your watchlist{' '}
           <span className={classes.totalStyle}>
             Total -{animeWatchlist.length}
           </span>

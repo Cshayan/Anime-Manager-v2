@@ -1,18 +1,18 @@
-import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addAnimeWatchlistStart,
   getAnimeWatchlistStart,
   setAnimeIdToDelete,
   deleteAnimeWatchlistStart,
-} from "../actions/animeAction";
+} from '../actions/animeAction';
 import {
   openAnimeDeleteDialog,
   closeAnimeDeleteDialog,
-} from "../actions/dialogAction";
+} from '../actions/dialogAction';
 
 const selectWatchlist = ({ anime: { watchlist = [] } }) => watchlist;
-const selectAnimeId = ({ anime: { animeIdToDelete = "" } }) => animeIdToDelete;
+const selectAnimeId = ({ anime: { animeIdToDelete = '' } }) => animeIdToDelete;
 
 export const useAnime = () => {
   const dispatch = useDispatch();
@@ -23,9 +23,9 @@ export const useAnime = () => {
     addAnimeToWatchlist(animeData);
   };
 
-  const handleDeleteFromWatchlistClick = (animeIdToDelete) => {
+  const handleDeleteFromWatchlistClick = (id) => {
     dispatch(openAnimeDeleteDialog());
-    dispatch(setAnimeIdToDelete(animeIdToDelete));
+    dispatch(setAnimeIdToDelete(id));
   };
 
   const addAnimeToWatchlist = (animeData) => {
@@ -35,7 +35,7 @@ export const useAnime = () => {
   const deleteAnimeFromWatchlist = () => {
     dispatch(deleteAnimeWatchlistStart(animeIdToDelete));
     dispatch(closeAnimeDeleteDialog());
-    dispatch(setAnimeIdToDelete(""));
+    dispatch(setAnimeIdToDelete(''));
   };
 
   const fetchAnimes = useCallback(() => {

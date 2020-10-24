@@ -1,11 +1,11 @@
-import React from "react";
-import { makeStyles, Grid } from "@material-ui/core";
-import NoDataCard from "../NoDataCard/NoDataCard";
+import React from 'react';
+import { makeStyles, Grid } from '@material-ui/core';
+import NoDataCard from '../NoDataCard/NoDataCard';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   statsContainer: {
-    padding: "1rem",
-    width: "100%",
+    padding: '1rem',
+    width: '100%',
   },
 }));
 

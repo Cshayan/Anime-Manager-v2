@@ -1,12 +1,11 @@
-import React, { memo } from "react";
-import { useDarkMode } from "./custom-hooks/darkModeHook";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import theme from "./utils/theme";
-import { darkTheme } from "./utils/theme";
-import { MuiThemeProvider } from "@material-ui/core/styles";
-import { HomeView, AuthView, Dashboard } from "./views";
-import SnackBar from "./components/utilityComponents/UniversalSnackbar";
-import "./App.css";
+import React, { memo } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { useDarkMode } from './custom-hooks/darkModeHook';
+import theme, { darkTheme } from './utils/theme';
+import { HomeView, AuthView, Dashboard } from './views';
+import SnackBar from './components/utilityComponents/UniversalSnackbar';
+import './App.css';
 
 const App = () => {
   const { isDarkModeEnabled } = useDarkMode();

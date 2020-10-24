@@ -1,10 +1,10 @@
-import { AUTH } from "../constants/authConstant";
-import { ANIME_TOKEN } from "../constants/url";
+import { AUTH } from '../constants/authConstant';
+import { ANIME_TOKEN } from '../constants/url';
 
 const initialState = {
   token: localStorage.getItem(ANIME_TOKEN),
   isUserLoading: false,
-  isAuthenticated: localStorage.getItem(ANIME_TOKEN) ? true : false,
+  isAuthenticated: !!localStorage.getItem(ANIME_TOKEN),
   user: null,
   error: null,
 };
@@ -63,7 +63,7 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         token: localStorage.getItem(ANIME_TOKEN),
         isUserLoading: false,
-        isAuthenticated: localStorage.getItem(ANIME_TOKEN) ? true : false,
+        isAuthenticated: !!localStorage.getItem(ANIME_TOKEN),
         user: null,
         error: null,
       };

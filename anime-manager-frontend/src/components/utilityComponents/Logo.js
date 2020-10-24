@@ -1,24 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
-import LogoImg from "../../assets/logo.png";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles, Button, Tooltip } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import LogoImg from '../../assets/logo.png';
 import {
   logoStyleObject,
   logoStyleMobileView,
-} from "../../constants/logoConstant";
-import { makeStyles, Button, Tooltip } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+} from '../../constants/logoConstant';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   logoImg: logoStyleObject,
   backIcon: {
-    fontSize: "2rem",
-    color: "#fff",
-    cursor: "pointer",
+    fontSize: '2rem',
+    color: '#fff',
+    cursor: 'pointer',
   },
-  "@media screen and (max-width: 600px)": {
+  '@media screen and (max-width: 600px)': {
     logoImg: logoStyleMobileView,
     backIcon: {
-      fontSize: "1.5rem",
+      fontSize: '1.5rem',
     },
   },
 }));
@@ -29,9 +29,9 @@ const Logo = (props) => {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "flex-start",
-        alignItems: "center",
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
         // flexDirection: "column",
       }}
     >

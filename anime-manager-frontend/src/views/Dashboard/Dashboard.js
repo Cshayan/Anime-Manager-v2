@@ -1,12 +1,12 @@
-import React from "react";
-import DashboardContainer from "../../containers/Dashboard/DashboardContainer";
-import { makeStyles } from "@material-ui/core/";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/';
+import DashboardContainer from '../../containers/Dashboard/DashboardContainer';
 
 const useStyles = makeStyles((theme) => ({
   dashboardBack: {
     background: theme.palette.background.default,
-    width: "100vw",
-    height: "100vh",
+    width: '100vw',
+    height: '100vh',
   },
 }));
 

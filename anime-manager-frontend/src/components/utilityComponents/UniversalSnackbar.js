@@ -1,14 +1,14 @@
-import React, { memo } from "react";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
-import Button from "@material-ui/core/Button";
-import { useSnackbar } from "../../custom-hooks/snackbarHook";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { memo } from 'react';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import { useSnackbar } from '../../custom-hooks/snackbarHook';
 
 const useStyles = makeStyles({
   cookieAlert: {
     fontSize: 15,
-    "& .MuiAlert-icon": {
+    '& .MuiAlert-icon': {
       fontSize: 30,
     },
   },
@@ -18,7 +18,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const UniversalSnackbar = (props) => {
+const UniversalSnackbar = () => {
   const {
     isSnackBarOpen,
     snackBarMessage,
@@ -31,7 +31,7 @@ const UniversalSnackbar = (props) => {
     <div>
       <Snackbar
         open={isSnackBarOpen}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
         autoHideDuration={6000}
         onClose={handleClose}
       >

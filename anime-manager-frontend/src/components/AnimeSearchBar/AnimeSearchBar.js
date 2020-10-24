@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles, MenuItem, Select } from "@material-ui/core/";
+import React, { useState } from 'react';
+import { makeStyles, MenuItem, Select } from '@material-ui/core/';
 import {
   useFocus,
   useGlobalSearchAnime,
-} from "custom-hooks/globalAnimeSearchHook";
-import { useResizeScreen } from "custom-hooks/useResizeHook";
-import "./searchBarStyle.css";
+} from 'custom-hooks/globalAnimeSearchHook';
+import { useResizeScreen } from 'custom-hooks/useResizeHook';
+import './searchBarStyle.css';
 
 const useStyles = makeStyles((theme) => ({
   searchBarContainer: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
   },
   searchButton: {
-    padding: "1rem",
-    color: "#fff",
+    padding: '1rem',
+    color: '#fff',
     background: theme.button.background.light,
-    border: "none",
-    outline: "none",
-    cursor: "pointer",
-    "&:hover": {
+    border: 'none',
+    outline: 'none',
+    cursor: 'pointer',
+    '&:hover': {
       opacity: 0.9,
     },
   },
   blueText: {
     color: theme.palette.primary.main,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: theme.typography.pxToRem(16),
     background: theme.palette.background.default,
   },
@@ -36,27 +36,27 @@ const useStyles = makeStyles((theme) => ({
     height: theme.typography.pxToRem(30),
   },
   select: {
-    "&:before": {
-      border: "none",
+    '&:before': {
+      border: 'none',
     },
-    "&:after": {
-      border: "none",
+    '&:after': {
+      border: 'none',
     },
   },
-  "@media screen and (max-width: 600px)": {
+  '@media screen and (max-width: 600px)': {
     searchButton: {
-      padding: "0.5rem",
-      width: "70%",
-      margin: "auto",
-      marginTop: "5px",
+      padding: '0.5rem',
+      width: '70%',
+      margin: 'auto',
+      marginTop: '5px',
     },
     searchBarContainer: {
-      flexDirection: "column",
-      justifyContent: "flex-start",
-      alignItems: "flex-start",
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
     },
     blueText: {
-      width: "100%",
+      width: '100%',
     },
   },
 }));
@@ -88,7 +88,7 @@ const AnimeSearchBar = () => {
       onSubmit={(e) => onHandleAnimeSearch(e)}
     >
       <Select
-        fullWidth={isMobile ? true : false}
+        fullWidth={!!isMobile}
         variant="filled"
         value={dropDownValue}
         onChange={handleDropDownChange}
