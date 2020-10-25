@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles, Grid } from '@material-ui/core';
+import AnimeBoxStats from 'components/AnimeStatCard/AnimeBoxStats';
+import AnimePieChartStats from 'components/AnimeStatCard/AnimePieChartStats';
 import NoDataCard from '../NoDataCard/NoDataCard';
 
 const useStyles = makeStyles(() => ({
@@ -9,8 +12,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const AnimeWatchlistStats = () => {
+const AnimeWatchlistStats = (props) => {
   const classes = useStyles();
+  const { watchlist, animeStats } = props;
   return (
     <Grid
       container
@@ -19,13 +23,45 @@ const AnimeWatchlistStats = () => {
       className={classes.statsContainer}
     >
       <Grid item xs={12}>
-        <NoDataCard />
+        {watchlist.length > 0 ? (
+          <AnimeBoxStats
+            total={animeStats.total}
+            watching={animeStats.watching}
+            unwatched={animeStats.unwatched}
+            hold={animeStats.hold}
+            dropped={animeStats.dropped}
+            completed={animeStats.completed}
+          />
+        ) : (
+          <NoDataCard />
+        )}
       </Grid>
       <Grid item xs={12}>
-        <NoDataCard />
+        {watchlist.length > 0 ? (
+          <AnimePieChartStats
+            total={animeStats.total}
+            watching={animeStats.watching}
+            unwatched={animeStats.unwatched}
+            hold={animeStats.hold}
+            dropped={animeStats.dropped}
+            completed={animeStats.completed}
+          />
+        ) : (
+          <NoDataCard />
+        )}
       </Grid>
     </Grid>
   );
+};
+
+AnimeWatchlistStats.propTypes = {
+  watchlist: PropTypes.array,
+  animeStats: PropTypes.object,
+};
+
+AnimeWatchlistStats.defaultProps = {
+  watchlist: [],
+  animeStats: {},
 };
 
 export default AnimeWatchlistStats;
