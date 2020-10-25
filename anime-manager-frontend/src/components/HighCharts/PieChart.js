@@ -1,10 +1,11 @@
+/* eslint-disable func-names */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 const PieChart = (props) => {
-  const { data } = props;
+  const { data, title, titleStyle, legendStyle } = props;
 
   const options = {
     chart: {
@@ -15,10 +16,8 @@ const PieChart = (props) => {
       type: 'pie',
     },
     title: {
-      text: 'View stats of your Watchlist',
-      style: {
-        color: '#fff',
-      },
+      text: title,
+      style: titleStyle,
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
@@ -56,9 +55,7 @@ const PieChart = (props) => {
       },
     },
     legend: {
-      itemStyle: {
-        color: '#fff',
-      },
+      itemStyle: legendStyle,
     },
     series: [
       {
@@ -74,10 +71,16 @@ const PieChart = (props) => {
 
 PieChart.propTypes = {
   data: PropTypes.array,
+  title: PropTypes.string,
+  titleStyle: PropTypes.object,
+  legendStyle: PropTypes.object,
 };
 
 PieChart.defaultProps = {
   data: [],
+  title: '',
+  titleStyle: {},
+  legendStyle: {},
 };
 
 export default PieChart;
